@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: starstruck-chart-engine
+    runtime: docker
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: ENGINE_ENABLED
+        value: "false"
+      - key: SWISSEPH_LICENSE_MODE
+        sync: false
+      - key: GEOAPIFY_API_KEY
+        sync: false
+      - key: EPHEMERIS_PATH
+        value: /app/ephe
+      - key: ALLOWED_ORIGINS
+        value: https://starstruckastro.com,https://www.starstruckastro.com,https://starstruckastro-site.pages.dev,https://starstruck-astro.everythingvictorya.chatgpt.site
